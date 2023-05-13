@@ -1,13 +1,13 @@
 import {FC} from "react";
+import {Outlet} from "react-router-dom";
+import {Movies} from "../components/Movies/Movies";
 
-interface IProps{
 
-}
-
-const MoviePage: FC<IProps> = () => {
+const MoviePage: FC = () => {
     return (
         <div>
-            Movie Page
+            <Outlet/>
+            <Movies/>
         </div>
     );
 };
