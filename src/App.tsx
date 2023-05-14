@@ -1,22 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {Navigate, Route, Routes} from "react-router-dom";
-import {MainLayout} from "./layouts/MainLayout";
+// import {Navigate, Route, Routes} from "react-router-dom";
+// import {MainLayout} from "./layouts/MainLayout";
 import {MoviePage} from "./pages/MoviePage";
-import {MovieDetailsPage} from "./pages/MovieDetailsPage";
+import {PageEnum} from "./constants/page.enum";
 
+import {HomePage} from "./pages/HomePage";
+import {Header} from "./components/Header/Header";
+// import {MovieDetailsPage} from "./pages/MovieDetailsPage";
 const App = () => {
+    const [choice, setChoice] = useState<PageEnum>(PageEnum.HOME)
     return (
-        <Routes>
-            <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<Navigate to={'movies'}/>}/>
-                <Route path={'movies'} element={<MoviePage/>}>
-                    <Route path={':id'} element={<MovieDetailsPage/>}/>
-                </Route>
-            </Route>
-        </Routes>
-    );
+        <div>
+            <Header setChoice = {setChoice}/>
+            {choice === PageEnum.HOME && <HomePage/>}
+            {choice === PageEnum.MOVIE && <MoviePage/>}
+        </div>
+
+    // <Routes>
+    //     <Route path={'/'} element={<MainLayout/>}>
+    //         <Route index element={<Navigate to={'home'}/>}/>
+    //         <Route path={'movies'} element={<MoviePage/>}>
+    //             <Route path={':id'} element={<MovieDetailsPage/>}/>
+    //         </Route>
+    //     </Route>
+    // </Routes>
+);
 }
+
 
 export default App;
 

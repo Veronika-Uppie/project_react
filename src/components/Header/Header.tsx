@@ -12,7 +12,7 @@ const Header: FC<IProps> = ({setChoice}) => {
     return (
         <div className={'Header'}>
 
-            <div className={'logo'}>MOVIE</div>
+            <div className={'logo'}>LOGO</div>
             <button onClick={() => setChoice(PageEnum.HOME)}>Home</button>
             <button>Mode</button>
             <div className={'user_item'}></div>
