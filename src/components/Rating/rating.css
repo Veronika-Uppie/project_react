@@ -1,0 +1,11 @@
+.rating_stars{
+    font-size: 18px;
+    color: #545454;
+}
+
+.light-theme .rating_stars{
+    color: #595858;
+}
+.dark-theme .rating_stars{
+    color: #dcdcdc;
+}

@@ -1,0 +1,30 @@
+
+
+.main_container{
+    display: flex;
+    width: 85%;
+}
+
+.header_container{
+    color: #fdf4fe;
+}
+
+
+.main_info_container{
+    display: flex;
+    flex-direction: column;
+    /*background: #fdfdfe;*/
+    border-top-right-radius: 30px;
+    padding: 20px;
+    width: 100%;
+
+}
+
+.light-theme .main_info_container{
+    background: #fdfdfe;
+    color: #1a1a1a;
+}
+.dark-theme .main_info_container{
+    background: #28292a;
+    color: #fdf4fe;
+}

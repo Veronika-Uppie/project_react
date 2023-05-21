@@ -1,69 +1,42 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-// import {Navigate, Route, Routes} from "react-router-dom";
-// import {MainLayout} from "./layouts/MainLayout";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {MainLayout} from "./layouts/MainLayout";
 import {MoviePage} from "./pages/MoviePage";
-import {PageEnum} from "./constants/page.enum";
+import {MovieDetailsPage} from "./pages/MovieDetailsPage";
+import './App.css';
+import {MovieGenresPage} from "./pages/MovieGenresPage";
 
-import {HomePage} from "./pages/HomePage";
-import {Header} from "./components/Header/Header";
-// import {MovieDetailsPage} from "./pages/MovieDetailsPage";
+
+
 const App = () => {
-    const [choice, setChoice] = useState<PageEnum>(PageEnum.HOME)
     return (
-        <div>
-            <Header setChoice = {setChoice}/>
-            {choice === PageEnum.HOME && <HomePage/>}
-            {choice === PageEnum.MOVIE && <MoviePage/>}
-        </div>
+            <Routes>
+                <Route path={'/'} element={<MainLayout/>}>
+                    <Route index element={<Navigate to={'movie'}/>}/>
+                    <Route path={'movie'} element={<MoviePage/>}/>
+                    <Route path={'movie/:id'} element={<MovieDetailsPage/>} />
+                    <Route path={'movie-genres/:genreId'} element={<MovieGenresPage/>}/>
+                    <Route path={'tv-genres/:genreId'} element={<MovieGenresPage/>}/>
+                </Route>
+            </Routes>
 
-    // <Routes>
-    //     <Route path={'/'} element={<MainLayout/>}>
-    //         <Route index element={<Navigate to={'home'}/>}/>
-    //         <Route path={'movies'} element={<MoviePage/>}>
-    //             <Route path={':id'} element={<MovieDetailsPage/>}/>
-    //         </Route>
-    //     </Route>
-    // </Routes>
-);
+    );
 }
-
 
 export default App;
 
 
+// має бути інтерцептор
+// обов`язкове використання redux-toolkit & TypeScript
+// має бути вивід всіх фільмів з пагінацією
+// мають бути зірочки рейтингу кожного фільму
+// має бути захаркоджений юзер
+// пошук фильма за назвою
+// фільтрація фільмів по жанрам
+// окремий роут з детальною інформацією про фільм (опис, постери, GenreBadge, можете додати трейлер)
+// світчер теми
 
 
 
 
-
-
-
-
-
-// import React, {useState} from 'react';
-//
-//
-// // import {Header} from "./components/Header/Header";
-// // import {HomePage} from "./pages/HomePage";
-// // import {MoviePage} from "./pages/MoviePage";
-// import {PageEnum} from "./constants/page.enum";
-// import {Routes} from "react-router-dom";
-//
-// const App = () => {
-//     // const [choice, setChoice] = useState<PageEnum>(PageEnum.HOME);
-//   return (
-//     <Routes>
-//
-//
-//         {/*<Header setChoice={setChoice}/>*/}
-//         {/*{choice === PageEnum.HOME && <HomePage/>}*/}
-//         {/*{choice === PageEnum.MOVIE && <MoviePage/>}*/}
-//     </Routes>
-//   );
-// }
-//
-// export default App;
-//
-//
-// //eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmFlMjI5NmQ1MDFiNmY3YWJjZDdkNTU5ZjU3Y2NiOCIsInN1YiI6IjY0NWU5MDZlZjkwYjE5MDE1NTQxODgzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EGOZr-UtwpSQSCuVR1mQQ9qAw-ALATXWWl7lZv53zmA

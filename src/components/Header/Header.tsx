@@ -1,24 +1,44 @@
-import {FC} from "react";
+import React, {FC, useState} from "react";
+import '@fortawesome/fontawesome-free/css/all.css';
+import {useNavigate} from "react-router-dom";
 
+
+import {UserInfo} from "../UserInfo";
 import './Header.css'
-import {IUseState} from "../../types/useState.type";
-import {PageEnum} from "../../constants/page.enum";
+import {Toggle} from "../Toggle";
+import {GenreBadge} from "../GenreBadge";
 
-interface IProps{
-    setChoice:IUseState<PageEnum>
+interface IProps {
+    isOn: boolean;
+    setIsOn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Header: FC<IProps> = ({setChoice}) => {
+const Header: FC<IProps> = ({isOn, setIsOn}) => {
+    const navigate = useNavigate();
+
+    const handleHomeClick = () => {
+        navigate('movie');
+    };
+
     return (
-        <div className={'Header'}>
-
-            <div className={'logo'}>LOGO</div>
-            <button onClick={() => setChoice(PageEnum.HOME)}>Home</button>
-            <button>Mode</button>
-            <div className={'user_item'}></div>
-
+        <div className={isOn ? 'dark-theme' : 'light-theme'}>
+            <div className="Header">
+                <div className="logo">MovieLife</div>
+                <UserInfo />
+                <div className="menu">
+                    <button className="button_home" onClick={() => handleHomeClick()}>Home</button>
+                    <div className="button_mode_toggle">
+                        <i className="fa-regular fa-sun"></i>
+                        <Toggle isOn={isOn} handleChange={() => setIsOn(!isOn)}/>
+                        <i className="fa-regular fa-moon"></i>
+                    </div>
+                    <GenreBadge/>
+                </div>
+            </div>
         </div>
     );
 };
 
-export {Header}
+export {
+    Header
+};

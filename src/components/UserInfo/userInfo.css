@@ -1,0 +1,35 @@
+.user_info_block{
+    color: #fdf4fe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.user_item{
+    border-radius: 50px;
+    background-image: url(./imgUserInfo/item.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    border: solid 1px rgba(64, 68, 103, 0.84);
+}
+
+.user_info{
+
+}
+.user_info h2{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0;
+    color: #fdf4fe;
+}
+.user_info p{
+    font-size: 14px;
+    margin-top: 5px;
+    color: #fdf4fe;
+
+}

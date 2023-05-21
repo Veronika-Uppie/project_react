@@ -1,16 +1,72 @@
 .Header{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    height: 50px;
-    background-color: rgba(240, 248, 255, 0.49);
+    width: 180px;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 30px;
 }
 
-.user_item{
-    border-radius: 50px;
-    /*background-image: url("headerImg/img.png");*/
-    width: 40px;
-    height: 40px;
-    background: aquamarine;
+.light-theme .Header{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
 }
+
+.light-theme, .dark-theme{
+    height: 100%;
+}
+
+.dark-theme .Header{
+    background-color: rgba(0, 0, 0, 0.67);
+}
+
+
+
+.logo{
+    margin: 20px 0;
+    font-weight: bold;
+    color: #28443a;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: solid 2px ;
+    border-bottom: solid 2px ;
+    border-image: radial-gradient(ellipse, rgb(255, 255, 255), rgba(255, 255, 255, 0)) 1;
+    margin-bottom: 20px;
+}
+
+.menu button{
+    display: flex;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    height: 40px;
+    color: #fdf4fe;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.menu button:hover{
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.button_mode_toggle{
+    height: 30px;
+    color: #fdf4fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-left: -15px;
+}
+
+
+.button_mode_toggle i{
+    margin: 0 10px;
+}
+

@@ -1,30 +1,67 @@
-import {FC} from "react";
-import {IMovie} from "../../interfaces/movie.interface";
+import {FC, useEffect, useState} from "react";
+
+import {IMovie} from "../../interfaces";
+import {Rating} from "../Rating";
+import posterImg from "../Movie/img/poster_img.png";
+import './movieDetails.css';
+
 
 interface IProps{
     movie: IMovie;
-
 }
 
 const MovieDetails: FC<IProps> = ({movie}) => {
-    const {id, original_title, original_language, title, adult, genre_ids, overview, popularity, poster_path, backdrop_path, video, vote_count, vote_average, release_date} = movie;
+    const {id, original_language, title, overview, poster_path, backdrop_path, release_date} = movie;
+    const year = new Date(release_date).getFullYear();
+    const poster_img = poster_path? `https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}` : posterImg;
+    const [video, setVideo] = useState('');
+
+    useEffect(() => {
+        const fetchVideo = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=a2ae2296d501b6f7abcd7d559f57ccb8`);
+                const data = await response.json();
+                if (data.results.length > 0) {
+                    setVideo(data.results[0].key);
+                }
+            } catch (error) {
+                console.error('Error fetching video:', error);
+            }
+        };
+
+        fetchVideo();
+    }, [id]);
+
+
     return (
         <div>
-            <div>id: {id}</div>
-            <div>original_title: {original_title}</div>
-            <div>original_language: {original_language}</div>
-            <div>title: {title}</div>
-            <div>adult: {adult}</div>
-            <div>genre_ids: {genre_ids}</div>
-            <div>overview: {overview}</div>
-            <div>popularity: {popularity}</div>
-            <div>poster_path: {poster_path}</div>
-            <div>backdrop_path: {backdrop_path}</div>
-            <div>video: {video}</div>
-            <div>vote_count: {vote_count}</div>
-            <div>vote_average: {vote_average}</div>
-            <div>release_date: {release_date}</div>
+            <div className={'details_block'}>
 
+                <div className={'poster_block'}>
+                    <img src={poster_img} alt={movie.title} />
+                </div>
+
+                <div className={'movie_info_details'}>
+                    <h2>{title} ({year})</h2>
+                    <div className={'rating'}>
+                        <Rating rating={movie.vote_average}/>
+                    </div>
+                    <p>Original language: {original_language}</p>
+                    <p>{overview}</p>
+                </div>
+
+            </div>
+                {video && (
+                    <div className={'video_block'}>
+                        <iframe
+                            width="700"
+                            height="455"
+                            src={`https://www.youtube.com/embed/${video}`}
+                            title="Movie Trailer"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                )}
         </div>
     );
 };

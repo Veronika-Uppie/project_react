@@ -1,0 +1,32 @@
+.search_block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search_input_block{
+    display: flex;
+}
+
+.search_input_block input[type="text"] {
+    text-align: center;
+}
+
+.search_block input{
+    border-radius: 20px;
+    width: 400px;
+    height: 25px;
+    display: flex;
+    color: #545454;
+    background-image: url('./img_search/search.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 20px;
+}
+.search_movie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+

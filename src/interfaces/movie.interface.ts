@@ -1,3 +1,12 @@
+import {IGenre} from "./genre.interface";
+
+export interface IApiRes {
+    page: number;
+    results: IMovie[];
+    genres: IGenre[];
+    total_pages: number;
+    total_results: number;
+}
 export interface IMovie{
     "poster_path": string,
     "adult": boolean,

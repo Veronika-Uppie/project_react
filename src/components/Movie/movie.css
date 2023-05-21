@@ -1,0 +1,120 @@
+.top_movies{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.movie_element{
+    width: 25%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 90%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.img-container:hover img {
+    transform: scale(1.2);
+}
+
+.movie_element h2{
+    font-weight: normal;
+    font-size: 20px;
+    height: 40px;
+}
+
+.movie_element a{
+    text-decoration: none;
+    padding-bottom: 40px;
+
+}
+
+.light-theme .movie_element a{
+    color: rgb(0, 0, 0);
+}
+.dark-theme .movie_element a{
+    color: rgb(255, 255, 255);
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination button{
+    border: none;
+    height: 35px;
+    width: 100px;
+    color: #fdf4fe;
+    margin: 0 10px;
+}
+
+.light-theme .pagination button{
+    background: rgb(45, 70, 56);
+}
+.dark-theme .pagination button{
+    background: rgb(60, 114, 76);
+}
+
+.button_prev{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.button_next{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+
+@media (max-width: 1200px) {
+    .movie_element{
+        width: 25%;
+    }
+}
+
+@media (max-width: 992px) {
+    .movie_element{
+        width: 33.33%;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie_element{
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie_element{
+        width: 100%;
+    }
+}
+
+
+
+/*.top_movies{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    width: 100px;*/
+/*    height: 200px;*/
+/*    margin: 20px;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.movie_element{*/
+
+/*}*/
