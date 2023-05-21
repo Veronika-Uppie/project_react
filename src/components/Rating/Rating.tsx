@@ -9,8 +9,9 @@ interface IRatingProps {
 }
 
 const Rating: React.FC<IRatingProps> = ({ rating }) => {
-    const fullStars = Math.floor(rating / 2);
-    const hasHalfStar = rating % 2 !== 0;
+    const fullStars = rating ? Math.floor(rating / 2) : 0;
+    const hasHalfStar = rating ? rating % 2 !== 0 : false;
+
 
     const renderStars = () => {
         const stars = [];

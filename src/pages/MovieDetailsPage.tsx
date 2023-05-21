@@ -1,9 +1,10 @@
 import React, {FC, useEffect, useState} from 'react';
-import {IMovie} from "../interfaces";
-import {MovieDetails} from "../components/MovieDetails/MovieDetails";
-import './moviePage.css';
 import {useParams} from "react-router-dom";
-import {movieService} from "../services/movie.service";
+
+import {IMovie} from "../interfaces";
+import {MovieDetails} from "../components/MovieDetails";
+import './moviePage.css';
+import {movieService} from "../services";
 import {useAppLocation} from "../hooks";
 
 const MovieDetailsPage: FC = () => {

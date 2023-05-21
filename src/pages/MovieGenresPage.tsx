@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import { useParams } from 'react-router-dom';
 import {useAppSelector} from "../hooks";
-import {MovieGenresDetails} from "../components/MovieGenresDetails/MovieGenresDetails";
+import {MovieGenresDetails} from "../components/MovieGenresDetails";
 
 
 
