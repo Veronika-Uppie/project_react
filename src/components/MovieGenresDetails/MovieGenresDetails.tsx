@@ -44,8 +44,6 @@ const MovieGenresDetails: FC<IProps> = ({ movies }) => {
                             Currently, there are no movies available for the selected genre. Please choose another genre.
                         </p>
                     </div>
-                    {<Movies />}
-
                 </div>
 
 

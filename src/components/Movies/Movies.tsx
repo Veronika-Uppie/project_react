@@ -35,13 +35,18 @@ const Movies: FC = () => {
             </div>
 
             <div className="pagination">
-                <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1} className={'button_prev'}>
-                    Previous
-                </button>
-                <span>{currentPage} of {totalPages}</span>
+                {currentPage !== 1 && (
+                    <button onClick={() => setCurrentPage(currentPage - 1)} className={'button_prev'}>
+                        Previous
+                    </button>
+                )}
+                <span>{currentPage} of 500</span>
+                {currentPage !== 501 && (
                 <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages} className={'button_next'}>
                     Next
                 </button>
+                )}
+
             </div>
         </div>
     );
