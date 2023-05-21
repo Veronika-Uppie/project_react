@@ -9,7 +9,7 @@ interface IState{
     movies:IMovie[],
     genres:IGenre[],
     genresTV:IGenre[],
-    errors:IError,
+    errors:IError | null,
     trigger:boolean
 }
 
@@ -71,7 +71,7 @@ const slice = createSlice({
                 state.movies = action.payload
             })
             .addMatcher(isRejectedWithValue(), (state, action) => {
-                state.errors = action.payload
+                state.errors = action.payload as IError
             })
 });
 
@@ -85,7 +85,7 @@ const sliceGenre = createSlice({
                 state.genres = action.payload
             })
             .addMatcher(isRejectedWithValue(), (state, action) => {
-                state.errors = action.payload
+                state.errors = action.payload as IError
             })
 });
 
@@ -99,7 +99,7 @@ const sliceTVGenre = createSlice({
                 state.genresTV = action.payload
             })
             .addMatcher(isRejectedWithValue(), (state, action) => {
-                state.errors = action.payload
+                state.errors = action.payload as IError
             })
 });
 
