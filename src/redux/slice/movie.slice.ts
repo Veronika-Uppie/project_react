@@ -1,16 +1,14 @@
 import {IError, IMovie} from "../../interfaces";
 import {createAsyncThunk, createSlice, isRejectedWithValue} from "@reduxjs/toolkit";
-import {movieService} from "../../services/movie.service";
+import {movieService} from "../../services";
 import {AxiosError} from "axios";
-import {IGenre} from "../../interfaces/genre.interface";
-import {IVideos} from "../../interfaces/videos.interface";
+import {IGenre} from "../../interfaces";
 
 
 interface IState{
     movies:IMovie[],
     genres:IGenre[],
     genresTV:IGenre[],
-    videos:IVideos[],
     errors:IError,
     trigger:boolean
 }
@@ -19,7 +17,6 @@ const initialState:IState={
     movies:[],
     genres:[],
     genresTV:[],
-    videos:[],
     errors:null,
     trigger:false
 };
