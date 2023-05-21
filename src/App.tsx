@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {Navigate, Route, Routes} from "react-router-dom";
-import {MainLayout} from "./layouts/MainLayout";
-import {MoviePage} from "./pages/MoviePage";
-import {MovieDetailsPage} from "./pages/MovieDetailsPage";
+import {MainLayout} from "./layouts";
+import {MoviePage} from "./pages";
+import {MovieDetailsPage} from "./pages";
 import './App.css';
-import {MovieGenresPage} from "./pages/MovieGenresPage";
+import {MovieGenresPage} from "./pages";
 
 
 

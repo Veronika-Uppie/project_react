@@ -17,7 +17,7 @@ const MovieDetails: FC<IProps> = ({movie}) => {
     const [video, setVideo] = useState('');
 
     useEffect(() => {
-        const fetchVideo = async () => {
+        const getVideo = async () => {
             try {
                 const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=a2ae2296d501b6f7abcd7d559f57ccb8`);
                 const data = await response.json();
@@ -29,7 +29,7 @@ const MovieDetails: FC<IProps> = ({movie}) => {
             }
         };
 
-        fetchVideo();
+        getVideo();
     }, [id]);
 
 

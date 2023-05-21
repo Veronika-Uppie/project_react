@@ -8,17 +8,22 @@ import {movieService} from "../services";
 import {useAppLocation} from "../hooks";
 
 const MovieDetailsPage: FC = () => {
-    const {id} = useParams();
+    const { id } = useParams<{ id: string }>();
     const {state} = useAppLocation<IMovie>();
-    const [movie, setMovie] = useState<IMovie>(null);
+    const [movie, setMovie] = useState<IMovie>();
 
     useEffect(() => {
-      if (!state){
-          movieService.getById(id).then(value => value.data).then(value => setMovie(value));
-      }  else {
-          setMovie(state)
-      }
-    }, [id, state])
+        if (id) {
+            if (!state) {
+                movieService.getById(id)
+                    .then(value => value.data)
+                    .then(value => setMovie(value));
+            } else {
+                setMovie(state);
+            }
+        }
+    }, [id, state]);
+
 
     return (
         <div className={'main_container'}>

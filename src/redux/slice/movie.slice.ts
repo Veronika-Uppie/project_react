@@ -63,19 +63,6 @@ const getTVGenres = createAsyncThunk<IGenre[]>(
             }
 )
 
-// const getVideos = createAsyncThunk<IVideos[],number >(
-//     'movieSlice/getMovies',
-//     async (id,{rejectWithValue})=> {
-//         try {
-//             const {data} = await movieService.getVideos(id);
-//             return data.results
-//         }catch (e){
-//             const err = e as AxiosError
-//             return rejectWithValue(err.response?.data)
-//         }
-//     }
-// )
-
 
 const slice = createSlice({
     name:'movieSlice',
@@ -119,24 +106,10 @@ const sliceTVGenre = createSlice({
             })
 });
 
-// const sliceVideos = createSlice({
-//     name:'VideoSlice',
-//     initialState,
-//     reducers:{},
-//     extraReducers:builder =>
-//         builder
-//             .addCase(getVideos.fulfilled, (state, action) => {
-//                 state.videos = action.payload
-//             })
-//             .addMatcher(isRejectedWithValue(), (state, action) => {
-//                 state.errors = action.payload
-//             })
-// });
 
 const {actions, reducer:movieReducer} = slice;
 const {actions: actionsGenre, reducer:genreReducer} = sliceGenre;
 const {actions: actionsTVGenre, reducer:genreTVReducer} = sliceTVGenre;
-// const {actions: actionsVideos, reducer:videosReducer} = sliceVideos;
 
 const movieActions = {
     ...actions,
@@ -150,19 +123,13 @@ const genreTVActions = {
     ...actionsTVGenre,
     getTVGenres
 }
-// const videosActions = {
-//     ...actionsVideos,
-//     getVideos
-// }
 
 
 export {
     movieActions,
     genreActions,
     genreTVActions,
-    // videosActions,
     movieReducer,
     genreReducer,
-    genreTVReducer,
-    // videosReducer
+    genreTVReducer
 }
