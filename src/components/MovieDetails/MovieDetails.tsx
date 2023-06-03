@@ -34,18 +34,18 @@ const MovieDetails: FC<IProps> = ({ movie }) => {
                     <p>{overview}</p>
                 </div>
             </div>
-            <div className={'video_block'}>
-                <iframe src={`https://www.youtube.com/embed/${id}${ApiKe}`} title={title} />
+            {/*<div className={'video_block'}>*/}
+            {/*    <iframe src={`https://www.youtube.com/embed/${id}${ApiKe}`} title={title} />*/}
 
-                <div>
-                    <iframe src={`https://www.youtube.com/embed/${movie.id}${ApiKey}`} title={movie.title} />
-                </div>
+            {/*    <div>*/}
+            {/*        <iframe src={`https://www.youtube.com/embed/${movie.id}${ApiKey}`} title={movie.title} />*/}
+            {/*    </div>*/}
 
-                {`${baseURL}/movie/${id}/videos${ApiKey}`}
-                {/*https://api.themoviedb.org/3/movie/550/videos?api_key=a2ae2296d501b6f7abcd7d559f57ccb8*/}
-                {/*https://api.themoviedb.org/3/movie/{movie_id}/videos*/}
-            {/*    'https://api.themoviedb.org/3/genre/movie/list'*/}
-            </div>
+            {/*    {`${baseURL}/movie/${id}/videos${ApiKey}`}*/}
+            {/*    /!*https://api.themoviedb.org/3/movie/550/videos?api_key=a2ae2296d501b6f7abcd7d559f57ccb8*!/*/}
+            {/*    /!*https://api.themoviedb.org/3/movie/{movie_id}/videos*!/*/}
+            {/*/!*    'https://api.themoviedb.org/3/genre/movie/list'*!/*/}
+            {/*</div>*/}
 
         </div>
     );
