@@ -13,7 +13,7 @@ interface IProps{
 }
 
 const MovieDetails: FC<IProps> = ({ movie }) => {
-    const {id, original_language, title, overview, poster_path, backdrop_path, release_date } = movie;
+    const { original_language, title, overview, poster_path, backdrop_path, release_date } = movie;
     const year = new Date(release_date).getFullYear();
     const poster_img = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}` : posterImg;
 
