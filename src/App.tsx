@@ -20,7 +20,6 @@ const App = () => {
                     <Route path={'tv-genres/:genreId'} element={<MovieGenresPage/>}/>
                 </Route>
             </Routes>
-
     );
 }
 

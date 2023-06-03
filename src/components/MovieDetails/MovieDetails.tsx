@@ -1,12 +1,11 @@
-import {FC, useEffect, useState} from "react";
+import {FC} from "react";
 
 import {IMovie} from "../../interfaces";
 import {Rating} from "../Rating";
 import posterImg from "../Movie/img/poster_img.png";
 import './movieDetails.css';
-import {ApiKe} from "../../constants";
-import axios from "axios";
-import {movieService} from "../../services";
+import {ApiKe, ApiKey, baseURL} from "../../constants";
+
 
 
 interface IProps{
@@ -14,7 +13,7 @@ interface IProps{
 }
 
 const MovieDetails: FC<IProps> = ({ movie }) => {
-    const { original_language, title, overview, poster_path, backdrop_path, release_date } = movie;
+    const {id, original_language, title, overview, poster_path, backdrop_path, release_date } = movie;
     const year = new Date(release_date).getFullYear();
     const poster_img = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}` : posterImg;
 
@@ -35,9 +34,23 @@ const MovieDetails: FC<IProps> = ({ movie }) => {
                     <p>{overview}</p>
                 </div>
             </div>
+            <div className={'video_block'}>
+                <iframe src={`https://www.youtube.com/embed/${id}${ApiKe}`} title={title} />
+
+                <div>
+                    <iframe src={`https://www.youtube.com/embed/${movie.id}${ApiKey}`} title={movie.title} />
+                </div>
+
+                {`${baseURL}/movie/${id}/videos${ApiKey}`}
+                {/*https://api.themoviedb.org/3/movie/550/videos?api_key=a2ae2296d501b6f7abcd7d559f57ccb8*/}
+                {/*https://api.themoviedb.org/3/movie/{movie_id}/videos*/}
+            {/*    'https://api.themoviedb.org/3/genre/movie/list'*/}
+            </div>
+
         </div>
     );
 };
 
 
 export {MovieDetails}
+
